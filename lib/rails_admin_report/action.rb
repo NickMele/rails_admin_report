@@ -24,11 +24,12 @@ module RailsAdmin
 
         register_instance_option :controller do
           proc do
-            objects = list_entries(@model_config, :export)
-            filename = "#{params[:model_name]}_#{Time.zone.now.strftime('%Y-%m-%d_%Hh%Mm%S')}.xlsx"
+            @objects = list_entries(@model_config, :export)
 
             if request.post?
-              send_data objects.generate_report.stream.read, filename: filename
+              filename = "#{params[:model_name]}_#{Time.zone.now.strftime('%Y-%m-%d_%Hh%Mm%S')}.xlsx"
+
+              send_data @objects.generate_report.stream.read, filename: filename
             else
               render @action.template_name
             end

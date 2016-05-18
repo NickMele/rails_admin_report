@@ -3,10 +3,10 @@ en:
   admin:
     actions:
       report:
-        title: "Report"
+        title: "Generate Report for %{model_label_plural}"
         menu: "Generate Report"
         breadcrumb: "Generate Report"
-        link: "Report"
+        link: "Generate Report"
         bulk_link: "Generate Report for selected %{model_label_plural}"
         done: "Reported"
     report:
