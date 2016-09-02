@@ -52,7 +52,7 @@
             = t("admin.misc.refresh")
           %button#remove_filter.btn.btn-info{title: "Reset filters"}
             %i.icon-white.icon-remove
-      %span{style: 'float:right'}= link_to t("admin.report.confirmation"), report_path(params.except('set').except('page')), class: 'btn btn-info', method: :post
+      %span{style: 'float:right'}= link_to t("admin.report.confirmation"), report_path(params.except([:set, :page]).merge(all: true)), class: 'btn btn-info', method: :post
 
   - unless @model_config.list.scopes.empty?
     %ul.nav.nav-tabs#scope_selector
